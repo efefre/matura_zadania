@@ -17,3 +17,5 @@ if __name__ == '__main__':
         result += i[9]
 
     print(result)
+
+    save_txt('wynik-4_1.txt',result)
