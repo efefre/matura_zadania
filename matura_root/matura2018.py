@@ -1,12 +1,13 @@
 # Arkusz: https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2018/formula_od_2015/informatyka/MIN-R2_1P-182.pdf
 import string
+import os
 
 def read_txt(filename):
     file = open(filename).readlines()
     return file
 
 def save_txt(filename, text):
-    with open(filename,'w') as text_file:
+    with open(filename,'a') as text_file:
         text_file.write(text)
 
 def word_and_number_of_unique_characters(text):
@@ -31,6 +32,10 @@ def count_distance_between_letters(text, alphabet):
 
 if __name__ == '__main__':
     file = read_txt('sygnaly.txt')
+    filename = 'wynik4.txt'
+
+    if os.path.isfile(filename):
+        os.remove(filename)
 
     # Ex.4.1
     result = ""
@@ -39,7 +44,8 @@ if __name__ == '__main__':
 
     print(result)
 
-    save_txt('wynik-4_1.txt',result)
+    save_txt(filename, '\n\nZadanie 4.1\n')
+    save_txt(filename,result)
 
     # Ex. 4.2
     words_with_unique_characters = []
@@ -47,9 +53,11 @@ if __name__ == '__main__':
         words_with_unique_characters.append(word_and_number_of_unique_characters(word))
 
     sorted_list = sorted(words_with_unique_characters, key=lambda line: line[1], reverse=True)
+    result = f'{sorted_list[0][0]} - {sorted_list[0][1]}'
+    print(result)
 
-    print(sorted_list[0][0], sorted_list[0][1])
-
+    save_txt(filename, '\n\nZadanie 4.2\n')
+    save_txt(filename, result)
     # Ex. 4.3
     alphabet = create_alphabet_list()
 
@@ -57,6 +65,10 @@ if __name__ == '__main__':
     for word in file:
         result.append(count_distance_between_letters(word, alphabet))
 
+    save_txt(filename, '\n\nZadanie 4.3\n')
     for word in result:
         if word:
             print(word)
+            word = word + '\n'
+            save_txt(filename, word)
+
