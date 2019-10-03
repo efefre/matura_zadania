@@ -30,3 +30,5 @@ if __name__ == '__main__':
         words_with_unique_characters.append(word_and_number_of_unique_characters(word))
 
     sorted_list = sorted(words_with_unique_characters, key=lambda line: line[1], reverse=True)
+
+    print(sorted_list[0][0], sorted_list[0][1])
