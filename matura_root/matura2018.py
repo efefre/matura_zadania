@@ -15,6 +15,19 @@ def word_and_number_of_unique_characters(text):
 def create_alphabet_list():
     return list(string.ascii_uppercase)
 
+def count_distance_between_letters(text, alphabet):
+    alphabet_position = []
+
+    for character in text.rstrip():
+        alphabet_position.append(alphabet.index(character.upper()))
+
+    sorted_alphabet_position = sorted(alphabet_position)
+
+
+    if sorted_alphabet_position[-1] - sorted_alphabet_position[0] <= 10:
+        return(text.rstrip())
+
+
 
 if __name__ == '__main__':
     file = read_txt('sygnaly.txt')
