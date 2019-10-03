@@ -8,6 +8,9 @@ def save_txt(filename, text):
     with open(filename,'w') as text_file:
         text_file.write(text)
 
+def word_and_number_of_unique_characters(text):
+    return [text.rstrip(), len(set(text.rstrip()))]
+
 
 if __name__ == '__main__':
     file = read_txt('sygnaly.txt')
