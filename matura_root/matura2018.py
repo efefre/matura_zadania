@@ -4,3 +4,12 @@ def read_txt(filename):
     file = open(filename).readlines()
     return file
 
+
+if __name__ == '__main__':
+    file = read_txt('sygnaly.txt')
+
+    result = ""
+    for i in (file[39::40]):
+        result += i[9]
+
+    print(result)
