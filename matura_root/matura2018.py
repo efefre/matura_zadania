@@ -49,3 +49,14 @@ if __name__ == '__main__':
     sorted_list = sorted(words_with_unique_characters, key=lambda line: line[1], reverse=True)
 
     print(sorted_list[0][0], sorted_list[0][1])
+
+    # Ex. 4.3
+    alphabet = create_alphabet_list()
+
+    result = []
+    for word in file:
+        result.append(count_distance_between_letters(word, alphabet))
+
+    for word in result:
+        if word:
+            print(word)
