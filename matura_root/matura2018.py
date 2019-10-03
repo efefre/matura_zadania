@@ -1,4 +1,5 @@
 # Arkusz: https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2018/formula_od_2015/informatyka/MIN-R2_1P-182.pdf
+import string
 
 def read_txt(filename):
     file = open(filename).readlines()
@@ -10,6 +11,9 @@ def save_txt(filename, text):
 
 def word_and_number_of_unique_characters(text):
     return [text.rstrip(), len(set(text.rstrip()))]
+
+def create_alphabet_list():
+    return list(string.ascii_uppercase)
 
 
 if __name__ == '__main__':
