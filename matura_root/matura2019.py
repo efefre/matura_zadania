@@ -16,3 +16,26 @@ if __name__ == '__main__':
     if os.path.isfile(filename):
         os.remove(filename)
 
+    #Ex. 4.1.
+    numbers = []
+    for number in file:
+        numbers.append(number)
+
+    sorted_numbers = sorted(numbers)
+
+    result = []
+    for number in sorted_numbers:
+        if number in result:
+            result.append(number)
+        else:
+            find_x = True
+            x = 1
+            while find_x == True:
+                if 3 ** x > int(number):
+                    break
+                elif int(number) **(1/x) == 3:
+                    result.append(number)
+                    find_x = False
+                else:
+                    x += 1
+
