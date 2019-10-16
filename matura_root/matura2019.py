@@ -2,3 +2,7 @@
 def read_txt(filename):
     file = open(filename).readlines()
     return file
+
+def save_txt(filename, text):
+    with open(filename,'a') as text_file:
+        text_file.write(text)
