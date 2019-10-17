@@ -40,4 +40,4 @@ if __name__ == '__main__':
                     x += 1
 
     save_txt(filename, '\n\nZadanie 4.1\n')
-    save_txt(filename, len(result))
+    save_txt(filename, str(len(result)))
