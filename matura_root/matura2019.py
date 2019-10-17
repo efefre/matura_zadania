@@ -41,3 +41,10 @@ if __name__ == '__main__':
 
     save_txt(filename, '\n\nZadanie 4.1\n')
     save_txt(filename, str(len(result)))
+
+# Ex.4.2
+    def factorial(n):
+        if n < 2:
+            return 1
+        else:
+            return n * factorial(n-1)
