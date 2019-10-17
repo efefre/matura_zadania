@@ -19,6 +19,7 @@ if __name__ == '__main__':
     #Ex. 4.1.
     numbers = []
     for number in file:
+        number = number.replace('\n','')
         numbers.append(number)
 
     sorted_numbers = sorted(numbers)
@@ -41,3 +42,23 @@ if __name__ == '__main__':
 
     save_txt(filename, '\n\nZadanie 4.1\n')
     save_txt(filename, str(len(result)))
+
+# Ex.4.2
+    def factorial(n):
+        if n < 2:
+            return 1
+        else:
+            return n * factorial(n-1)
+
+    result = []
+    for number in numbers:
+        sum = 0
+        for x in number:
+            sum += factorial(int(x))
+
+        if sum == int(number):
+            result.append(number)
+
+    save_txt(filename, '\n\nZadanie 4.2\n')
+    for number in result:
+        save_txt(filename, str(number)+"\n")
