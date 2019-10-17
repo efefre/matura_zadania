@@ -19,6 +19,7 @@ if __name__ == '__main__':
     #Ex. 4.1.
     numbers = []
     for number in file:
+        number = number.replace('\n','')
         numbers.append(number)
 
     sorted_numbers = sorted(numbers)
