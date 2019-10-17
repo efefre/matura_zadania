@@ -58,3 +58,7 @@ if __name__ == '__main__':
 
         if sum == int(number):
             result.append(number)
+
+    save_txt(filename, '\n\nZadanie 4.2\n')
+    for number in result:
+        save_txt(filename, str(number)+"\n")
