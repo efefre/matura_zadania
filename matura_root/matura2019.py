@@ -49,3 +49,12 @@ if __name__ == '__main__':
             return 1
         else:
             return n * factorial(n-1)
+
+    result = []
+    for number in numbers:
+        sum = 0
+        for x in number:
+            sum += factorial(int(x))
+
+        if sum == int(number):
+            result.append(number)
