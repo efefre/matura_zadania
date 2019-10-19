@@ -64,7 +64,7 @@ if __name__ == '__main__':
         save_txt(filename, str(number)+"\n")
 
 # Ex.4.3
-    # NWD(num1,num2)
+    # NWD(num1,num2) and  NWD(num1, num2, num3) = NWD(NWD(num1, num2), num3).
     def find_nwd(num1, num2):
 
         if num2 > num1:
@@ -75,3 +75,24 @@ if __name__ == '__main__':
             num1, num2 = num2, r
 
         return num2
+
+    result = {'start_number':0, 'max_len': 0, 'max_nwd':0}
+
+    for num1 in range(len(numbers) - 1):
+        temp_start = int(numbers[num1])
+        temp_len = 1
+        temp_nwd = int(numbers[num1])
+
+        for num2 in range(num1+1, len(numbers)):
+            nwd = find_nwd(temp_nwd, int(numbers[num2]))
+
+            if nwd > 1:
+                temp_len += 1
+                temp_nwd = nwd
+            else:
+                if result['max_len'] < temp_len:
+                    result['start_number'] = temp_start
+                    result['max_len'] = temp_len
+                    result['max_nwd'] = temp_nwd
+                break
+
