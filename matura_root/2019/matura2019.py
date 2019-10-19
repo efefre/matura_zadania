@@ -10,8 +10,8 @@ def save_txt(filename, text):
         text_file.write(text)
 
 if __name__ == '__main__':
-    file = read_txt('liczby.txt')
-    filename = '2019_wynik4.txt'
+    file = read_txt('2019/liczby.txt')
+    filename = '2019/2019_wynik4.txt'
 
     if os.path.isfile(filename):
         os.remove(filename)

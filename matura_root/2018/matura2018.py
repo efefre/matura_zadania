@@ -31,8 +31,8 @@ def count_distance_between_letters(text, alphabet):
 
 
 if __name__ == '__main__':
-    file = read_txt('sygnaly.txt')
-    filename = '2018_wynik4.txt'
+    file = read_txt('2018/sygnaly.txt')
+    filename = '2018/2018_wynik4.txt'
 
     if os.path.isfile(filename):
         os.remove(filename)
