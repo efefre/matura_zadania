@@ -96,3 +96,5 @@ if __name__ == '__main__':
                     result['max_nwd'] = temp_nwd
                 break
 
+    save_txt(filename, '\n\nZadanie 4.3\n')
+    save_txt(filename, f'Pierwsza liczba ciągu: {result.get("start_number")}, długość: {result.get("max_len")}, największy wspólny dzielnik: {result.get("max_nwd")}')
