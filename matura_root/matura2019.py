@@ -65,20 +65,13 @@ if __name__ == '__main__':
 
 # Ex.4.3
     # NWD(num1,num2)
-    def find_nwd(list):
-        num1_position = 0
-        num2_position = num1_position + 1
-
-        num1 = list[num1_position]
-        num2 = list[num2_position]
+    def find_nwd(num1, num2):
 
         if num2 > num1:
             num1, num2 = num2, num1
 
-        r = num1 % num2
-        while r != 0:
-            num1 = num2
-            num2 = r
+        while num1 % num2 != 0:
             r = num1 % num2
+            num1, num2 = num2, r
 
         return num2
