@@ -89,7 +89,8 @@ if __name__ == '__main__':
             if nwd > 1:
                 temp_len += 1
                 temp_nwd = nwd
-            else:
+
+            if nwd == 1 or num2 == len(numbers) -1:
                 if result['max_len'] < temp_len:
                     result['start_number'] = temp_start
                     result['max_len'] = temp_len
