@@ -4,6 +4,10 @@ def read_txt(filename):
     file = open(filename)
     return file
 
+def save_txt(filename, text):
+    with open(filename,'a') as text_file:
+        text_file.write(text)
+
 def add_customer(dict, tax_number, year, kg):
     if tax_number in dict.keys():
         if dict[tax_number].get(year):
