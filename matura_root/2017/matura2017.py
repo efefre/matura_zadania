@@ -3,3 +3,14 @@
 def read_txt(filename):
     file = open(filename)
     return file
+
+def add_customer(dict, tax_number, year, kg):
+    if tax_number in dict.keys():
+        if dict[tax_number].get(year):
+            dict[tax_number][year] += int(kg)
+            dict[tax_number]['total'] += int(kg)
+        else:
+            dict[tax_number][year] = int(kg)
+            dict[tax_number]['total'] += int(kg)
+    else:
+        dict[tax_number] = {year:int(kg), 'total': int(kg)}
