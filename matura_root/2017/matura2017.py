@@ -24,3 +24,6 @@ if __name__ == '__main__':
         kg = kg.replace('\n','')
         year, month, day = date_of_sale.rsplit('-')
         add_customer(customers,tax_number, year, kg)
+
+    #Ex. 4.1
+    top_three_total_customer = sorted([[value['total'], key] for key, value in customers.items()], reverse=True)[:3]
