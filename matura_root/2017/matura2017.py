@@ -14,3 +14,13 @@ def add_customer(dict, tax_number, year, kg):
             dict[tax_number]['total'] += int(kg)
     else:
         dict[tax_number] = {year:int(kg), 'total': int(kg)}
+
+if __name__ == '__main__':
+    sugar_data = read_txt('2017/cukier.txt')
+
+    customers = {}
+    for lp, line in enumerate(sugar_data,1):
+        date_of_sale, tax_number, kg = line.rsplit('\t')
+        kg = kg.replace('\n','')
+        year, month, day = date_of_sale.rsplit('-')
+        add_customer(customers,tax_number, year, kg)
