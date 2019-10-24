@@ -1,4 +1,5 @@
 # Arkusz: https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2017/formula_od_2015/informatyka/MIN-R2_1P-172.pdf
+import os
 
 def read_txt(filename):
     file = open(filename)
@@ -21,6 +22,10 @@ def add_customer(dict, tax_number, year, kg):
 
 if __name__ == '__main__':
     sugar_data = read_txt('2017/cukier.txt')
+    filename = '2017/2017_wynik4.txt'
+
+    if os.path.isfile(filename):
+        os.remove(filename)
 
     customers = {}
     for lp, line in enumerate(sugar_data,1):
@@ -31,3 +36,9 @@ if __name__ == '__main__':
 
     #Ex. 4.1
     top_three_total_customer = sorted([[value['total'], key] for key, value in customers.items()], reverse=True)[:3]
+
+    save_txt(filename, '\n\nZadanie 4.1\n')
+    for customer in top_three_total_customer:
+        total, tax_number = customer
+        result = str(tax_number) + ' - ' + str(total) + '\n'
+        save_txt(filename, result)
