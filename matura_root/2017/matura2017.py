@@ -50,4 +50,5 @@ if __name__ == '__main__':
     for line in sugar_price_data:
         year, price = line.rsplit('\t')
         price = price.replace('\n','').replace(',','.')
+        year = year.strip()
         sugar_price[year] = float(price)
