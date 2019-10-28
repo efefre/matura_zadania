@@ -52,3 +52,9 @@ if __name__ == '__main__':
         price = price.replace('\n','').replace(',','.')
         year = year.strip()
         sugar_price[year] = float(price)
+
+    total_revenue = 0
+    for year in sugar_price.keys():
+        for customer in customers:
+            if customers[customer].get(year):
+                total_revenue += customers[customer].get(year) * sugar_price[year]
