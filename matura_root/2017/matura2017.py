@@ -63,6 +63,7 @@ if __name__ == '__main__':
     save_txt(filename, f'{total_revenue} zł')
 
     #Ex. 6.1
+    filename = '2017/2017_wynik6.txt'
     pixels_data = read_txt('2017/dane.txt')
 
     pixels_values = []
@@ -74,3 +75,6 @@ if __name__ == '__main__':
 
     brightest = max(set(pixels_values))
     darkest = min(set(pixels_values))
+
+    save_txt(filename, '\n\nZadanie 6.1\n')
+    save_txt(filename, f'Najjaśniejszy piksel: {brightest}\nNajciemniejszy piksel: {darkest}')
