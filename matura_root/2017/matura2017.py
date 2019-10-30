@@ -66,6 +66,9 @@ if __name__ == '__main__':
     filename = '2017/2017_wynik6.txt'
     pixels_data = read_txt('2017/dane.txt')
 
+    if os.path.isfile(filename):
+        os.remove(filename)
+
     pixels_values = []
     for line in pixels_data:
         line_list = line.split(' ')
@@ -78,3 +81,28 @@ if __name__ == '__main__':
 
     save_txt(filename, '\n\nZadanie 6.1\n')
     save_txt(filename, f'Najjaśniejszy piksel: {brightest}\nNajciemniejszy piksel: {darkest}')
+
+    #Ex. 6.2
+    delete_rows = 0
+    pixels_data = read_txt('2017/dane.txt')
+
+    pixels_by_row = []
+    for line in pixels_data:
+        line_list = line.split(' ')
+        pixels_by_row.append((line_list))
+
+    n = 0
+    m = -1
+    for row in pixels_by_row:
+        while n < 320/2:
+            if row[n].replace('\n', '') == row[m].replace('\n', ''):
+                n += 1
+                m -= 1
+            else:
+                delete_rows += 1
+                break
+        n = 0
+        m = -1
+
+    save_txt(filename, '\n\nZadanie 6.2\n')
+    save_txt(filename, f'Minimalna liczba wierszy, które należy usunąć, żeby obraz miał pionową oś symetrii: {delete_rows}')
