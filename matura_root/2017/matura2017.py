@@ -71,3 +71,6 @@ if __name__ == '__main__':
 
         for pixel_value in line_list:
             pixels_values.append(int(pixel_value.replace('\n','')))
+
+    brightest = max(set(pixels_values))
+    darkest = min(set(pixels_values))
