@@ -88,3 +88,16 @@ if __name__ == '__main__':
         line_list = line.split(' ')
         pixels_by_row.append((line_list))
 
+    n = 0
+    m = -1
+    for row in pixels_by_row:
+        while n < 320/2:
+            if row[n].replace('\n', '') == row[m].replace('\n', ''):
+                n += 1
+                m -= 1
+            else:
+                delete_rows += 1
+                break
+        n = 0
+        m = -1
+
