@@ -42,3 +42,22 @@ if __name__ == '__main__':
         total, tax_number = customer
         result = str(tax_number) + ' - ' + str(total) + '\n'
         save_txt(filename, result)
+
+    #Ex. 4.2.
+    sugar_price_data = read_txt('2017/cennik.txt')
+    sugar_price = {}
+
+    for line in sugar_price_data:
+        year, price = line.rsplit('\t')
+        price = price.replace('\n','').replace(',','.')
+        year = year.strip()
+        sugar_price[year] = float(price)
+
+    total_revenue = 0
+    for year in sugar_price.keys():
+        for customer in customers:
+            if customers[customer].get(year):
+                total_revenue += customers[customer].get(year) * sugar_price[year]
+
+    save_txt(filename, '\n\nZadanie 4.2\n')
+    save_txt(filename, f'{total_revenue} zł')
