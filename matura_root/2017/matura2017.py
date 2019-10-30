@@ -61,3 +61,6 @@ if __name__ == '__main__':
 
     save_txt(filename, '\n\nZadanie 4.2\n')
     save_txt(filename, f'{total_revenue} zł')
+
+    #Ex. 6.1
+    pixels_data = read_txt('2017/dane.txt')
