@@ -58,3 +58,6 @@ if __name__ == '__main__':
         for customer in customers:
             if customers[customer].get(year):
                 total_revenue += customers[customer].get(year) * sugar_price[year]
+
+    save_txt(filename, '\n\nZadanie 4.2\n')
+    save_txt(filename, f'{total_revenue} zł')
