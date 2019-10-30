@@ -66,6 +66,9 @@ if __name__ == '__main__':
     filename = '2017/2017_wynik6.txt'
     pixels_data = read_txt('2017/dane.txt')
 
+    if os.path.isfile(filename):
+        os.remove(filename)
+
     pixels_values = []
     for line in pixels_data:
         line_list = line.split(' ')
@@ -101,3 +104,5 @@ if __name__ == '__main__':
         n = 0
         m = -1
 
+    save_txt(filename, '\n\nZadanie 6.2\n')
+    save_txt(filename, f'Minimalna liczba wierszy, które należy usunąć, żeby obraz miał pionową oś symetrii: {delete_rows}')
