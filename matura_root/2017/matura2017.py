@@ -64,3 +64,10 @@ if __name__ == '__main__':
 
     #Ex. 6.1
     pixels_data = read_txt('2017/dane.txt')
+
+    pixels_values = []
+    for line in pixels_data:
+        line_list = line.split(' ')
+
+        for pixel_value in line_list:
+            pixels_values.append(int(pixel_value.replace('\n','')))
