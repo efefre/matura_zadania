@@ -82,20 +82,20 @@ if __name__ == '__main__':
     save_txt(filename, '\n\nZadanie 6.1\n')
     save_txt(filename, f'Najjaśniejszy piksel: {brightest}\nNajciemniejszy piksel: {darkest}')
 
-    #Ex. 6.2
+    # Ex. 6.2
     delete_rows = 0
     pixels_data = read_txt('2017/dane.txt')
 
     pixels_by_row = []
     for line in pixels_data:
         line_list = line.split(' ')
-        pixels_by_row.append((line_list))
+        pixels_by_row.append([int(x.replace('\n', '')) for x in line_list])
 
     n = 0
     m = -1
     for row in pixels_by_row:
-        while n < 320/2:
-            if row[n].replace('\n', '') == row[m].replace('\n', ''):
+        while n < 320 / 2:
+            if row[n] == row[m]:
                 n += 1
                 m -= 1
             else:
