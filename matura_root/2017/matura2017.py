@@ -1,24 +1,28 @@
 # Arkusz: https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2017/formula_od_2015/informatyka/MIN-R2_1P-172.pdf
 import os
 
-def read_txt(filename):
-    file = open(filename)
+
+def read_txt(file):
+    file = open(file)
     return file
 
-def save_txt(filename, text):
-    with open(filename,'a') as text_file:
+
+def save_txt(file, text):
+    with open(file, 'a') as text_file:
         text_file.write(text)
 
-def add_customer(dict, tax_number, year, kg):
-    if tax_number in dict.keys():
-        if dict[tax_number].get(year):
-            dict[tax_number][year] += int(kg)
-            dict[tax_number]['total'] += int(kg)
+
+def add_customer(dictionary, tax_num, year_num, kg_sugar):
+    if tax_num in dictionary.keys():
+        if dictionary[tax_num].get(year_num):
+            dictionary[tax_num][year_num] += int(kg_sugar)
+            dictionary[tax_num]['total'] += int(kg_sugar)
         else:
-            dict[tax_number][year] = int(kg)
-            dict[tax_number]['total'] += int(kg)
+            dictionary[tax_num][year_num] = int(kg_sugar)
+            dictionary[tax_num]['total'] += int(kg_sugar)
     else:
-        dict[tax_number] = {year:int(kg), 'total': int(kg)}
+        dictionary[tax_num] = {year_num: int(kg_sugar), 'total': int(kg_sugar)}
+
 
 if __name__ == '__main__':
     sugar_data = read_txt('2017/cukier.txt')
@@ -28,13 +32,13 @@ if __name__ == '__main__':
         os.remove(filename)
 
     customers = {}
-    for lp, line in enumerate(sugar_data,1):
+    for lp, line in enumerate(sugar_data, 1):
         date_of_sale, tax_number, kg = line.rsplit('\t')
-        kg = kg.replace('\n','')
+        kg = kg.replace('\n', '')
         year, month, day = date_of_sale.rsplit('-')
-        add_customer(customers,tax_number, year, kg)
+        add_customer(customers, tax_number, year, kg)
 
-    #Ex. 4.1
+    # Ex. 4.1
     top_three_total_customer = sorted([[value['total'], key] for key, value in customers.items()], reverse=True)[:3]
 
     save_txt(filename, '\n\nZadanie 4.1\n')
@@ -43,13 +47,13 @@ if __name__ == '__main__':
         result = str(tax_number) + ' - ' + str(total) + '\n'
         save_txt(filename, result)
 
-    #Ex. 4.2.
+    # Ex. 4.2.
     sugar_price_data = read_txt('2017/cennik.txt')
     sugar_price = {}
 
     for line in sugar_price_data:
         year, price = line.rsplit('\t')
-        price = price.replace('\n','').replace(',','.')
+        price = price.replace('\n', '').replace(',', '.')
         year = year.strip()
         sugar_price[year] = float(price)
 
@@ -62,7 +66,7 @@ if __name__ == '__main__':
     save_txt(filename, '\n\nZadanie 4.2\n')
     save_txt(filename, f'{total_revenue} zł')
 
-    #Ex. 6.1
+    # Ex. 6.1
     filename = '2017/2017_wynik6.txt'
     pixels_data = read_txt('2017/dane.txt')
 
@@ -74,7 +78,7 @@ if __name__ == '__main__':
         line_list = line.split(' ')
 
         for pixel_value in line_list:
-            pixels_values.append(int(pixel_value.replace('\n','')))
+            pixels_values.append(int(pixel_value.replace('\n', '')))
 
     brightest = max(set(pixels_values))
     darkest = min(set(pixels_values))
