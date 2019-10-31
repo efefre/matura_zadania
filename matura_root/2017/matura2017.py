@@ -118,8 +118,8 @@ if __name__ == '__main__':
     n = 0
     while n <= len(pixels_by_row) - 1:
         for m, pixel in enumerate(pixels_by_row[n]):
-            if n > 0 and n < len(pixels_by_row) - 1:
-                if m > 0 and m < len(pixels_by_row[n]) - 1:
+            if 0 < n < len(pixels_by_row) - 1:
+                if 0 < m < len(pixels_by_row[n]) - 1:
                     distance_t = pixel - pixels_by_row[n - 1][m]
                     distance_b = pixel - pixels_by_row[n + 1][m]
                     distance_l = pixel - pixels_by_row[n][m - 1]
@@ -149,7 +149,7 @@ if __name__ == '__main__':
                         contrast_pix += 1
             # first row
             elif n == 0:
-                if m > 0 and m < len(pixels_by_row[n]) - 1:
+                if 0 < m < len(pixels_by_row[n]) - 1:
                     distance_b = pixel - pixels_by_row[n + 1][m]
                     distance_l = pixel - pixels_by_row[n][m - 1]
                     distance_r = pixel - pixels_by_row[n][m + 1]
@@ -173,7 +173,7 @@ if __name__ == '__main__':
                         contrast_pix += 1
             # last row
             elif n == len(pixels_by_row) - 1:
-                if m > 0 and m < len(pixels_by_row[n]) - 1:
+                if 0 < m < len(pixels_by_row[n]) - 1:
                     distance_t = pixel - pixels_by_row[n - 1][m]
                     distance_l = pixel - pixels_by_row[n][m - 1]
                     distance_r = pixel - pixels_by_row[n][m + 1]
