@@ -109,4 +109,94 @@ if __name__ == '__main__':
         m = -1
 
     save_txt(filename, '\n\nZadanie 6.2\n')
-    save_txt(filename, f'Minimalna liczba wierszy, które należy usunąć, żeby obraz miał pionową oś symetrii: {delete_rows}')
+    save_txt(filename,
+             f'Minimalna liczba wierszy, które należy usunąć, żeby obraz miał pionową oś symetrii: {delete_rows}')
+
+    # Ex.6.3
+    contrast_pix = 0
+
+    n = 0
+    while n <= len(pixels_by_row) - 1:
+        for m, pixel in enumerate(pixels_by_row[n]):
+            if 0 < n < len(pixels_by_row) - 1:
+                if 0 < m < len(pixels_by_row[n]) - 1:
+                    distance_t = pixel - pixels_by_row[n - 1][m]
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_t > 128 or distance_t < -128 \
+                            or distance_b > 128 or distance_b < -128 \
+                            or distance_l > 128 or distance_l < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # first column
+                elif m == 0:
+                    distance_t = pixel - pixels_by_row[n - 1][m]
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_t > 128 or distance_t < -128 \
+                            or distance_b > 128 or distance_b < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # last column
+                elif m == len(pixels_by_row[n]) - 1:
+                    distance_t = pixel - pixels_by_row[n - 1][m]
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    if distance_t > 128 or distance_t < -128 \
+                            or distance_b > 128 or distance_b < -128 \
+                            or distance_l > 128 or distance_l < -128:
+                        contrast_pix += 1
+            # first row
+            elif n == 0:
+                if 0 < m < len(pixels_by_row[n]) - 1:
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_b > 128 or distance_b < -128 \
+                            or distance_l > 128 or distance_l < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # first column
+                elif m == 0:
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_b > 128 or distance_b < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # last column
+                elif m == len(pixels_by_row[n]) - 1:
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    if distance_b > 128 or distance_b < -128 \
+                            or distance_l > 128 or distance_l < -128:
+                        contrast_pix += 1
+            # last row
+            elif n == len(pixels_by_row) - 1:
+                if 0 < m < len(pixels_by_row[n]) - 1:
+                    distance_t = pixel - pixels_by_row[n - 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_t > 128 or distance_t < -128 \
+                            or distance_l > 128 or distance_l < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # first column
+                elif m == 0:
+                    distance_t = pixel - pixels_by_row[n - 1][m]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_t > 128 or distance_t < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # last column
+                elif m == len(pixels_by_row[n]) - 1:
+                    distance_t = pixel - pixels_by_row[n - 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    if distance_t > 128 or distance_t < -128 \
+                            or distance_l > 128 or distance_l < -128:
+                        contrast_pix += 1
+        n += 1
+
+    save_txt(filename, '\n\nZadanie 6.3\n')
+    save_txt(filename,
+             f'Liczba pikseli, dla których istnieje przynajmniej jeden kontrastujący z nim sąsiedni piksel: {contrast_pix}')
