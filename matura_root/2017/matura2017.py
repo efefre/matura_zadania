@@ -147,3 +147,27 @@ if __name__ == '__main__':
                             or distance_b > 128 or distance_b < -128 \
                             or distance_l > 128 or distance_l < -128:
                         contrast_pix += 1
+            # first row
+            elif n == 0:
+                if m > 0 and m < len(pixels_by_row[n]) - 1:
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_b > 128 or distance_b < -128 \
+                            or distance_l > 128 or distance_l < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # first column
+                elif m == 0:
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_r = pixel - pixels_by_row[n][m + 1]
+                    if distance_b > 128 or distance_b < -128 \
+                            or distance_r > 128 or distance_r < -128:
+                        contrast_pix += 1
+                # last column
+                elif m == len(pixels_by_row[n]) - 1:
+                    distance_b = pixel - pixels_by_row[n + 1][m]
+                    distance_l = pixel - pixels_by_row[n][m - 1]
+                    if distance_b > 128 or distance_b < -128 \
+                            or distance_l > 128 or distance_l < -128:
+                        contrast_pix += 1
