@@ -196,3 +196,7 @@ if __name__ == '__main__':
                             or distance_l > 128 or distance_l < -128:
                         contrast_pix += 1
         n += 1
+
+    save_txt(filename, '\n\nZadanie 6.3\n')
+    save_txt(filename,
+             f'Liczba pikseli, dla których istnieje przynajmniej jeden kontrastujący z nim sąsiedni piksel: {contrast_pix}')
