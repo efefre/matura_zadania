@@ -47,3 +47,7 @@ if __name__ == '__main__':
             new_word += alphabet[new_letter_index]
         print(word, '>', new_word)
         words_list_cesar.append(new_word)
+
+    save_txt(filename, 'Zadanie 6.1\n')
+    for word in words_list_cesar:
+        save_txt(filename, f'{word}\n')
