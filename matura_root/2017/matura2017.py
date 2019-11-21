@@ -205,4 +205,8 @@ if __name__ == '__main__':
     max_rows = len(pixels_by_row)
     max_cols = len(pixels_by_row[0])
 
+    row_num = 0
+    col_num = 0
+    temp_counts = 1
+    counts = 0
 
