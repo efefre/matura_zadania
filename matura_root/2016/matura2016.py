@@ -11,3 +11,15 @@ def save_txt(file, text):
     with open(file, 'a') as text_file:
         text_file.write(text)
 
+if __name__ == '__main__':
+    #Ex.6.1
+    dane_6_1 = read_txt('2016/dane_6_1.txt')
+    filename = '2016/2016_wynik_6_1.txt'
+
+    if os.path.isfile(filename):
+        os.remove(filename)
+
+    words_list = []
+
+    for line in dane_6_1:
+        words_list.append(line.rstrip('\n'))
