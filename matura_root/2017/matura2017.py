@@ -200,3 +200,43 @@ if __name__ == '__main__':
     save_txt(filename, '\n\nZadanie 6.3\n')
     save_txt(filename,
              f'Liczba pikseli, dla których istnieje przynajmniej jeden kontrastujący z nim sąsiedni piksel: {contrast_pix}')
+
+    # Ex.6.4
+    max_rows = len(pixels_by_row)
+    max_cols = len(pixels_by_row[0])
+
+    row_num = 0
+    col_num = 0
+    temp_counts = 1
+    counts = 0
+
+    while col_num < max_cols:
+        while row_num < max_rows:
+            if row_num < max_rows - 1:
+                if pixels_by_row[row_num][col_num] == pixels_by_row[row_num+1][col_num]:
+                    temp_counts += 1
+                    row_num += 1
+                else:
+                    if temp_counts > counts:
+                        counts = temp_counts
+                        temp_counts = 1
+                        row_num += 1
+                    else:
+                        row_num += 1
+                        temp_counts = 1
+            else:
+                if temp_counts > counts:
+                    counts = temp_counts
+                    temp_counts = 1
+                    row_num = 0
+                    col_num += 1
+                    break
+                else:
+                    row_num = 0
+                    col_num += 1
+                    temp_counts = 1
+                    break
+
+    save_txt(filename, '\n\nZadanie 6.4\n')
+    save_txt(filename,
+             f'Najdłuższa linia pionowa składa się z: {counts} pikseli.')
