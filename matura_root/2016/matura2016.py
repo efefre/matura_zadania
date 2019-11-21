@@ -26,3 +26,24 @@ if __name__ == '__main__':
 
     alphabet = list(string.ascii_uppercase)
     len_alphabet = len(alphabet)
+
+    k = 107
+
+    words_list_cesar = []
+
+    for word in words_list:
+        new_word = ''
+        for letter in word:
+            letter_index = alphabet.index(letter)
+            if k//len_alphabet == 0:
+                dist_end_alph = len_alphabet - letter_index - 1
+                new_letter = k - dist_end_alph
+                new_letter_index = new_letter - 1
+            else:
+                modulo = k % len_alphabet
+                dist_end_alph = len_alphabet - letter_index - 1
+                new_letter = modulo - dist_end_alph
+                new_letter_index = new_letter - 1
+            new_word += alphabet[new_letter_index]
+        print(word, '>', new_word)
+        words_list_cesar.append(new_word)
