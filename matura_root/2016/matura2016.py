@@ -23,3 +23,6 @@ if __name__ == '__main__':
 
     for line in dane_6_1:
         words_list.append(line.rstrip('\n'))
+
+    alphabet = list(string.ascii_uppercase)
+    len_alphabet = len(alphabet)
