@@ -200,3 +200,9 @@ if __name__ == '__main__':
     save_txt(filename, '\n\nZadanie 6.3\n')
     save_txt(filename,
              f'Liczba pikseli, dla których istnieje przynajmniej jeden kontrastujący z nim sąsiedni piksel: {contrast_pix}')
+
+    # Ex.6.4
+    max_rows = len(pixels_by_row)
+    max_cols = len(pixels_by_row[0])
+
+
