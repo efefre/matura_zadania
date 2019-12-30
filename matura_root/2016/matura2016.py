@@ -145,3 +145,9 @@ if __name__ == '__main__':
         wrong_encryption = find_wrong_encryption(oryginal_word, encrypted_word)
         if wrong_encryption:
             words_with_wrong_ecryption.append(wrong_encryption)
+
+    print(words_with_wrong_ecryption)
+
+    save_txt(filename, 'Zadanie 6.3\n')
+    for word in words_with_wrong_ecryption:
+        save_txt(filename, f'{word}\n')
