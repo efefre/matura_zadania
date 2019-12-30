@@ -14,13 +14,13 @@ def save_txt(file, text):
 
 if __name__ == '__main__':
 
-    numbers = read_txt('2014/NAPIS.TXT')
-    filename = '2014/2014_wynik_5.txt'
+    text = read_txt('2014 Stara formuła/NAPIS.TXT')
+    filename = '2014 Stara formuła/2014_wynik_5.txt'
 
     if os.path.isfile(filename):
         os.remove(filename)
 
-    numbers_list = []
+    text_list = []
 
-    for line in numbers:
-        numbers_list.append(line.rstrip('\n'))
+    for line in text:
+        text_list.append(line.rstrip('\n'))
