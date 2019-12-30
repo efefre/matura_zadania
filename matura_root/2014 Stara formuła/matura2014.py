@@ -34,3 +34,14 @@ if __name__ == '__main__':
             i += 1
         return True
 
+    prime_words = 0
+
+    for word in text_list:
+        word_ascii = 0
+        for letter in word:
+            word_ascii += ord(letter)
+
+        if check_if_prime_number(word_ascii):
+            prime_words += 1
+
+    result_5_1 = f'Liczba napisów pierwszych: {prime_words}'
