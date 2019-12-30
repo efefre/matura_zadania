@@ -105,3 +105,35 @@ if __name__ == '__main__':
 
     for line in dane_6_3:
         words_list.append(line.rstrip('\n'))
+
+  def find_wrong_encryption(oryginal_word, encrypted_word):
+        word_k = 0
+        wrong_encryption_word = []
+
+        len_oryginal = len(oryginal_word)
+        len_encrypted = len(encrypted_word)
+
+        if len_oryginal == len_encrypted:
+            index = 0
+            while index <= len_oryginal - 1:
+                letter_oryginal = oryginal_word[index]
+                letter_encrypted = encrypted_word[index]
+
+                letter_oryginal_index = alphabet.index(letter_oryginal)
+                letter_encrypted_index = alphabet.index(letter_encrypted)
+
+                if letter_encrypted_index > letter_oryginal_index:
+                    k = letter_encrypted_index - letter_oryginal_index
+                else:
+                    k = 26 - letter_oryginal_index + letter_encrypted_index
+
+                if index == 0:
+                    word_k = k
+                else:
+                    if k != word_k:
+                        wrong_encryption_word = oryginal_word
+                        break
+
+                index += 1
+
+        return wrong_encryption_word
