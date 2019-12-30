@@ -89,3 +89,7 @@ if __name__ == '__main__':
             oryginal_words.append(oryginal_word)
 
     print(oryginal_words)
+
+    save_txt(filename, 'Zadanie 6.2\n')
+    for word in oryginal_words:
+        save_txt(filename, f'{word}\n')
