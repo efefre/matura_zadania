@@ -60,5 +60,8 @@ if __name__ == '__main__':
     max_number_index = converted_list.index(max(converted_list))+1
 
     result_4_3 = f'Najmniejsza liczba jest w wierszu: {min_number_index}, największa w wierszu: {max_number_index}'
-    print(result_4_3)
+
+    save_txt(filename, f'Zadanie 4.1 - {result_4_1}\n'
+                       f'Zadanie 4.2 - {result_4_2}\n'
+                        f'Zadanie 4.3 - {result_4_3}')
 
