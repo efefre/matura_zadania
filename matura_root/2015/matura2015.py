@@ -1,7 +1,6 @@
 # Arkusz: https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2015/formula_od_2015/MIN-R2_1P-152.pdf
 
 import os
-import string
 
 def read_txt(file):
     file = open(file)
