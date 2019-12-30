@@ -34,3 +34,19 @@ if __name__ == '__main__':
             counter += 1
 
     result_4_1 = counter
+
+    # Ex.4.2
+    div_2 = 0
+    div_8 = 0
+
+    for number in numbers_list:
+        converted_number = int(str(number),2)
+
+        if converted_number % 2 == 0:
+            div_2 += 1
+
+        if converted_number % 8 == 0:
+            div_8 += 1
+
+    result_4_2 = f'Podzielne przez 2: {div_2}, podzielne przez 8: {div_8}'
+
