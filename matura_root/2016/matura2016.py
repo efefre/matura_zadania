@@ -93,3 +93,61 @@ if __name__ == '__main__':
     save_txt(filename, 'Zadanie 6.2\n')
     for word in oryginal_words:
         save_txt(filename, f'{word}\n')
+
+    # Ex.6.3
+    dane_6_3 = read_txt('2016/dane_6_3.txt')
+    filename = '2016/2016_wynik_6_3.txt'
+
+    if os.path.isfile(filename):
+        os.remove(filename)
+
+    words_list = []
+
+    for line in dane_6_3:
+        words_list.append(line.rstrip('\n'))
+
+    def find_wrong_encryption(oryginal_word, encrypted_word):
+        word_k = 0
+        wrong_encryption_word = []
+
+        len_oryginal = len(oryginal_word)
+        len_encrypted = len(encrypted_word)
+
+        if len_oryginal == len_encrypted:
+            index = 0
+            while index <= len_oryginal - 1:
+                letter_oryginal = oryginal_word[index]
+                letter_encrypted = encrypted_word[index]
+
+                letter_oryginal_index = alphabet.index(letter_oryginal)
+                letter_encrypted_index = alphabet.index(letter_encrypted)
+
+                if letter_encrypted_index > letter_oryginal_index:
+                    k = letter_encrypted_index - letter_oryginal_index
+                else:
+                    k = 26 - letter_oryginal_index + letter_encrypted_index
+
+                if index == 0:
+                    word_k = k
+                else:
+                    if k != word_k:
+                        wrong_encryption_word = oryginal_word
+                        break
+
+                index += 1
+
+        return wrong_encryption_word
+
+    words_with_wrong_ecryption = []
+
+    for data in words_list:
+        oryginal_word, encrypted_word = data.split(' ')
+        wrong_encryption = find_wrong_encryption(oryginal_word, encrypted_word)
+        if wrong_encryption:
+            words_with_wrong_ecryption.append(wrong_encryption)
+
+    print(words_with_wrong_ecryption)
+
+    save_txt(filename, 'Zadanie 6.3\n')
+    for word in words_with_wrong_ecryption:
+        save_txt(filename, f'{word}\n')
