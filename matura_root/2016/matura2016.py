@@ -106,7 +106,7 @@ if __name__ == '__main__':
     for line in dane_6_3:
         words_list.append(line.rstrip('\n'))
 
-  def find_wrong_encryption(oryginal_word, encrypted_word):
+    def find_wrong_encryption(oryginal_word, encrypted_word):
         word_k = 0
         wrong_encryption_word = []
 
@@ -137,3 +137,11 @@ if __name__ == '__main__':
                 index += 1
 
         return wrong_encryption_word
+
+    words_with_wrong_ecryption = []
+
+    for data in words_list:
+        oryginal_word, encrypted_word = data.split(' ')
+        wrong_encryption = find_wrong_encryption(oryginal_word, encrypted_word)
+        if wrong_encryption:
+            words_with_wrong_ecryption.append(wrong_encryption)
