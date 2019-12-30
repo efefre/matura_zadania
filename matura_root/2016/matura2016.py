@@ -76,3 +76,16 @@ if __name__ == '__main__':
 
             oryginal_word += alphabet[oryginal_letter_index]
         return oryginal_word
+
+    oryginal_words = []
+    for data in words_list:
+        word, k = data.split(' ')
+        if k == '':
+            error_msg = f"{word} - Uwaga! W pliku wejściowym nie podano liczby k dla tego słowa"
+            oryginal_words.append(error_msg)
+        else:
+            k = int(k)
+            oryginal_word = decrypt_cesar(word, k)
+            oryginal_words.append(oryginal_word)
+
+    print(oryginal_words)
