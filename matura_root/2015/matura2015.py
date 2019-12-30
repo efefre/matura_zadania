@@ -24,3 +24,13 @@ if __name__ == '__main__':
 
     for line in numbers:
         numbers_list.append(line.rstrip('\n'))
+
+    # Ex.4.1
+    counter = 0
+    for number in numbers_list:
+        count_1 = number.count('1')
+        count_0 = number.count('0')
+        if count_0 > count_1:
+            counter += 1
+
+    result_4_1 = counter
