@@ -45,3 +45,22 @@ if __name__ == '__main__':
             prime_words += 1
 
     result_5_1 = f'Liczba napisów pierwszych: {prime_words}'
+
+    #Ex.5.2
+    previous_ascii = 0
+    growing_words = []
+
+    for word in text_list:
+        good_word = True
+        for letter in word:
+            letter_ascii = ord(letter)
+            if letter_ascii > previous_ascii:
+                previous_ascii = ord(letter)
+                good_word = True
+            else:
+                good_word = False
+                break
+
+        previous_ascii = 0
+        if good_word:
+            growing_words.append(word)
