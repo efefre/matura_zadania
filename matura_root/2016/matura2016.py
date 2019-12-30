@@ -93,3 +93,15 @@ if __name__ == '__main__':
     save_txt(filename, 'Zadanie 6.2\n')
     for word in oryginal_words:
         save_txt(filename, f'{word}\n')
+
+    # Ex.6.3
+    dane_6_3 = read_txt('2016/dane_6_3.txt')
+    filename = '2016/2016_wynik_6_3.txt'
+
+    if os.path.isfile(filename):
+        os.remove(filename)
+
+    words_list = []
+
+    for line in dane_6_3:
+        words_list.append(line.rstrip('\n'))
