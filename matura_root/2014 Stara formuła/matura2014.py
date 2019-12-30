@@ -24,3 +24,13 @@ if __name__ == '__main__':
 
     for line in text:
         text_list.append(line.rstrip('\n'))
+
+    # Ex.5.1
+    def check_if_prime_number(number):
+        i = 2
+        while i < number:
+            if number % i == 0:
+                return False
+            i += 1
+        return True
+
