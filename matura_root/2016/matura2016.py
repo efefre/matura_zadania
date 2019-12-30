@@ -63,3 +63,16 @@ if __name__ == '__main__':
 
     for line in dane_6_2:
         words_list.append(line.rstrip('\n'))
+
+    def decrypt_cesar(word, k):
+        oryginal_word = ''
+        for letter in word:
+            letter_index = alphabet.index(letter)
+            if k//len_alphabet == 0:
+                oryginal_letter_index = letter_index - k
+            else:
+                modulo = k % len_alphabet
+                oryginal_letter_index = letter_index - modulo
+
+            oryginal_word += alphabet[oryginal_letter_index]
+        return oryginal_word
