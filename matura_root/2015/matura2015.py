@@ -50,3 +50,15 @@ if __name__ == '__main__':
 
     result_4_2 = f'Podzielne przez 2: {div_2}, podzielne przez 8: {div_8}'
 
+    # Ex.4.3
+    converted_list = []
+    for number in numbers_list:
+        converted_number = int(str(number), 2)
+        converted_list.append((int(converted_number)))
+
+    min_number_index = converted_list.index(min(converted_list))+1
+    max_number_index = converted_list.index(max(converted_list))+1
+
+    result_4_3 = f'Najmniejsza liczba jest w wierszu: {min_number_index}, największa w wierszu: {max_number_index}'
+    print(result_4_3)
+
