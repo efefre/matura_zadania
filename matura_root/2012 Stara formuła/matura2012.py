@@ -38,4 +38,4 @@ if __name__ == '__main__':
     table_ascii = {}
 
     for i in alphabet:
-        table[i] = ord(i)
+        table_ascii[i] = ord(i)
