@@ -1,6 +1,8 @@
 # Arkusz: https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2012/maj/infor/a2_pr.pdf
 
 import os
+import string
+
 
 def read_txt(file):
     file = open(file)
@@ -29,3 +31,11 @@ if __name__ == '__main__':
 
     for line in klucze1:
         keys1_list.append(line.rstrip('\n'))
+
+
+    alphabet = list(string.ascii_uppercase)
+
+    table_ascii = {}
+
+    for i in alphabet:
+        table[i] = ord(i)
