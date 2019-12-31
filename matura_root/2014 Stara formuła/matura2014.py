@@ -2,6 +2,7 @@
 # Arkusz: https://www.dlamaturzysty.info/s/1625/36234-Matura-arkusze-maturalne/133033-Informatyka-poziom-rozszerzony-matura-2014-pytania-i-odpowiedzi.htm
 
 import os
+from collections import Counter
 
 def read_txt(file):
     file = open(file)
@@ -64,3 +65,9 @@ if __name__ == '__main__':
         previous_ascii = 0
         if good_word:
             growing_words.append(word)
+
+    #Ex.5.3
+    words_more_than_one = []
+    for text, count in Counter(text_list).items():
+        if count > 1:
+            words_more_than_one.append(text)
