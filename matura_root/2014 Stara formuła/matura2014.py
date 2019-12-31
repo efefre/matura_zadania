@@ -66,8 +66,20 @@ if __name__ == '__main__':
         if good_word:
             growing_words.append(word)
 
+    result_5_2 = ''
+    for word in growing_words:
+        result_5_2 += word + ' '
+
     #Ex.5.3
     words_more_than_one = []
     for text, count in Counter(text_list).items():
         if count > 1:
             words_more_than_one.append(text)
+
+    result_5_3 = ''
+    for word in words_more_than_one:
+        result_5_3 += word + ' '
+
+    save_txt(filename, f'Zadanie 5.1 - {result_5_1}\n'
+                       f'Zadanie 5.2 - {result_5_2}\n'
+                       f'Zadanie 5.3 - {result_5_3}')
