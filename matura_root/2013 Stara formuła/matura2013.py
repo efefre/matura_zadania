@@ -23,3 +23,11 @@ if __name__ == '__main__':
 
     for line in numbers:
         numbers_list.append(line.rstrip('\n'))
+
+    #Ex.6a
+    counter = 0
+    for number in numbers_list:
+        if number[0] == number[-1]:
+            counter += 1
+
+    result_6a = counter
