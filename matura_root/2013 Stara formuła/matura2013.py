@@ -66,3 +66,7 @@ if __name__ == '__main__':
     min_num = min(checked_numbers)
 
     result_6c = f'Spełniony warunek: {len(checked_numbers)}, najmniejsza liczba to: {min_num}, największa to: {max_num}'
+
+    save_txt(filename, f'Zadanie 6a - {result_6a}\n'
+                       f'Zadanie 6b - {result_6b}\n'
+                       f'Zadanie 6c - {result_6c}')
