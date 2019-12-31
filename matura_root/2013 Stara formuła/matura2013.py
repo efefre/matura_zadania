@@ -24,10 +24,20 @@ if __name__ == '__main__':
     for line in numbers:
         numbers_list.append(line.rstrip('\n'))
 
-    #Ex.6a
-    counter = 0
+    # Ex.6a
+    result_6a = 0
     for number in numbers_list:
         if number[0] == number[-1]:
-            counter += 1
+            result_6a += 1
 
-    result_6a = counter
+    # Ex.6b
+    def convert_to_decimal(number):
+        converted_number = int(str(number),8)
+        return str(converted_number)
+
+    result_6b = 0
+    for number in numbers_list:
+        converted_number = convert_to_decimal(number)
+        if converted_number[0] == converted_number[-1]:
+            result_6b += 1
+
