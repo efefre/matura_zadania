@@ -41,3 +41,28 @@ if __name__ == '__main__':
         if converted_number[0] == converted_number[-1]:
             result_6b += 1
 
+    # Ex.6c
+    def check_number(number):
+        good_number = True
+        previous_number = 0
+
+        for num in str(number):
+            if int(num) >= previous_number:
+                previous_number = int(num)
+                good_number = True
+            else:
+                good_number = False
+                break
+
+        return good_number
+
+    checked_numbers = []
+    for number in numbers_list:
+        check = check_number(number)
+        if check:
+            checked_numbers.append(int(number))
+
+    max_num = max(checked_numbers)
+    min_num = min(checked_numbers)
+
+    result_6c = f'Spełniony warunek: {len(checked_numbers)}, najmniejsza liczba to: {min_num}, największa to: {max_num}'
