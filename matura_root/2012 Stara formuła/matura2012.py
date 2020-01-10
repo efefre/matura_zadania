@@ -14,28 +14,41 @@ def save_txt(file, text):
         text_file.write(text)
 
 if __name__ == '__main__':
-
     tj = read_txt('2012 Stara formuła/tj.txt')
-    klucze1 = read_txt('2012 Stara formuła/klucze1.txt')
-    filename = '2013 Stara formuła/2013_wynik_6.txt'
+    klucze1_file = read_txt('2012 Stara formuła/klucze1.txt')
+    filename = '2012 Stara formuła/2012_wynik_4.txt'
 
     if os.path.isfile(filename):
         os.remove(filename)
 
-    tj_list = []
+    tj_list = [line.rstrip('\n') for line in tj]
 
-    for line in tj:
-        tj_list.append(line.rstrip('\n'))
-
-    keys1_list = []
-
-    for line in klucze1:
-        keys1_list.append(line.rstrip('\n'))
-
+    keys1_list = [line.rstrip('\n') for line in klucze1_file]
 
     alphabet = list(string.ascii_uppercase)
 
-    table_ascii = {}
+    # Ex. 4a
+    def encryption(word, key):
+        result = []
 
-    for i in alphabet:
-        table_ascii[i] = ord(i)
+        for lp, letter in enumerate(word):
+            letter_code = ord(letter)
+            key_letter = key[lp % len(key)]
+            key_letter_number = 1 + alphabet.index(key_letter)
+            encrypted_letter_code = letter_code + key_letter_number
+
+            if encrypted_letter_code > 90:
+                encrypted_letter_code = encrypted_letter_code - 26
+                result.append(chr(encrypted_letter_code))
+            else:
+                result.append(chr(encrypted_letter_code))
+
+        return ''.join(result)
+
+
+    save_txt(filename, f'Zadanie 4a\n')
+    for lp, word in enumerate(tj_list):
+        save_txt(filename, f'{encryption(word, keys1_list[lp])}\n')
+
+
+
