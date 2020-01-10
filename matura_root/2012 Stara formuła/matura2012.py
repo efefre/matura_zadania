@@ -4,10 +4,10 @@ import os
 import string
 
 
-def read_txt(file):
-    file = open(file)
-    return file
-
+def read_txt(filename):
+    with open(filename, 'r') as f:
+        file = f.readlines()
+        return file
 
 def save_txt(file, text):
     with open(file, 'a') as text_file:
