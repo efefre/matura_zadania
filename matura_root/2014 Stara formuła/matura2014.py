@@ -4,9 +4,10 @@
 import os
 from collections import Counter
 
-def read_txt(file):
-    file = open(file)
-    return file
+def read_txt(filename):
+    with open(filename, 'r') as f:
+        file = f.readlines()
+        return file
 
 
 def save_txt(file, text):
