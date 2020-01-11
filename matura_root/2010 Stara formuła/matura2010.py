@@ -1,6 +1,8 @@
 # Arkusz: https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2010/Informatyka/pr_ii.pdf
 
 import os
+from collections import Counter
+
 
 def read_txt(filename):
     with open(filename, 'r') as f:
@@ -27,6 +29,9 @@ if __name__ == '__main__':
             row = row.replace("'","")
             save_txt(filename_a, row)
 
-
-
-
+    # Ex. 4b
+    for list_words in anagrams:
+        if Counter(list_words[0]) == Counter(list_words[1]) == Counter(list_words[2]) == Counter(list_words[3]) == Counter((list_words[4])):
+            row = f"{str(list_words).replace('[', '').replace(']', '')}\n"
+            row = row.replace("'", "")
+            save_txt(filename_b, row)
