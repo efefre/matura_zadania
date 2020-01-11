@@ -33,5 +33,16 @@ if __name__ == '__main__':
     result_6b = f'Największa liczba zapisana w systemie dwójkowym: {max_number:b},\n' \
                 f'największa liczba zapisana w systemie dziesiętnym: {max_number}'
 
+    # Ex.6c
+    count = 0
+    sum_number = 0
+    for number in numbers:
+        if len(number) == 9:
+            count += 1
+            sum_number += int(number,2)
+
+    result_6c = f'Liczb: {count}, Suma: {sum_number:b}'
+
     save_txt(filename, f'Zadanie 6a - {result_6a}\n'
-                       f'Zadanie 6b - {result_6b}')
+                       f'Zadanie 6b - {result_6b}\n'
+                       f'Zadanie 6c - {result_6c}')
