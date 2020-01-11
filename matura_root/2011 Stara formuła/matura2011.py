@@ -26,4 +26,12 @@ if __name__ == '__main__':
         if number[-1] == '0':
             result_6a +=1
 
-    save_txt(filename, f'Zadanie 6a - {result_6a}\n')
+    # Ex.6b
+    decimal_numbers = [int(number, 2) for number in numbers]
+    max_number = max(decimal_numbers)
+
+    result_6b = f'Największa liczba zapisana w systemie dwójkowym: {max_number:b},\n' \
+                f'największa liczba zapisana w systemie dziesiętnym: {max_number}'
+
+    save_txt(filename, f'Zadanie 6a - {result_6a}\n'
+                       f'Zadanie 6b - {result_6b}')
