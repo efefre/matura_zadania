@@ -19,3 +19,11 @@ if __name__ == '__main__':
         os.remove(filename)
 
     numbers = [line.rstrip('\n') for line in numbers]
+
+    # Ex.6a
+    result_6a = 0
+    for number in numbers:
+        if number[-1] == '0':
+            result_6a +=1
+
+    save_txt(filename, f'Zadanie 6a - {result_6a}\n')
