@@ -13,7 +13,20 @@ def save_txt(file, text):
 
 if __name__ == '__main__':
     anagrams = [line.rstrip('\n').split() for line in read_txt('2010 Stara formuła/anagram.txt')]
-    filename= '2010 Stara formuła/2010_wynik_6.txt'
+    filename_a= '2010 Stara formuła/2010_odp_4a.txt'
+    filename_b = '2010 Stara formuła/2010_odp_4b.txt'
 
-    if os.path.isfile(filename):
-        os.remove(filename)
+    for filename in (filename_a, filename_b):
+        if os.path.isfile(filename):
+            os.remove(filename)
+
+    # Ex. 4a
+    for list_words in anagrams:
+        if len(list_words[0]) == len(list_words[1]) == len(list_words[2]) == len(list_words[3]) == len((list_words[4])):
+            row = f"{str(list_words).replace('[','').replace(']','')}\n"
+            row = row.replace("'","")
+            save_txt(filename_a, row)
+
+
+
+
