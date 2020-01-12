@@ -20,3 +20,15 @@ if __name__ == '__main__':
     for filename in (filename_a, filename_b):
         if os.path.isfile(filename):
             os.remove(filename)
+
+    # Ex.5a
+    result_5a = 0
+    for row in data:
+        if row[0] == row[0][::-1]:
+            result_5a += 1
+
+        if row[1] == row[1][::-1]:
+            result_5a += 1
+
+
+    save_txt(filename_a, f'Zadanie 5a - {result_5a}')
