@@ -53,3 +53,22 @@ if __name__ == '__main__':
     save_txt(filename_a, f'Zadanie 5a - {result_5a},\n'
                          f'Zadanie 5b - {result_5b},\n'
                          f'Zadanie 5c - {result_5c}')
+
+    #Ex.5d
+    result_5d = []
+    for row in data:
+        if row[1] in row[0]:
+            result_5d.append(row[0])
+        else:
+            for i in range(len(row[1]), 0, -1):
+                if row[0][:i] == row[1][-i:]:
+                    result_5d.append(row[1][:i]+row[0])
+                    break
+                elif row[1][:i] == row[0][-i:]:
+                    result_5d.append(row[0]+row[1][i:])
+                    break
+            else:
+                result_5d.append(row[0]+row[1])
+
+    for row in result_5d:
+        save_txt(filename_b, f'{row}\n')
