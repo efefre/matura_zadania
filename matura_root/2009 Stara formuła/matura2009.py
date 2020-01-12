@@ -30,5 +30,11 @@ if __name__ == '__main__':
         if row[1] == row[1][::-1]:
             result_5a += 1
 
+    #Ex.5b
+    result_5b = 0
+    for row in data:
+        if row[1] in row[0]:
+            result_5b += 1
 
-    save_txt(filename_a, f'Zadanie 5a - {result_5a}')
+    save_txt(filename_a, f'Zadanie 5a - {result_5a},\n'
+                         f'Zadanie 5b - {result_5b}')
