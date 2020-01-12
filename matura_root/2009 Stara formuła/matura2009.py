@@ -36,5 +36,20 @@ if __name__ == '__main__':
         if row[1] in row[0]:
             result_5b += 1
 
+    #Ex.5c
+    result_5c = 0
+
+    for row in data:
+        if row[1] in row[0]:
+            continue
+        else:
+            i = 0
+            for i in range(0, len(row[1])):
+                if row[0][:i] == row[1][-i:] or row[1][:i] == row[0][-i:]:
+                    break
+            else:
+                result_5c +=1
+
     save_txt(filename_a, f'Zadanie 5a - {result_5a},\n'
-                         f'Zadanie 5b - {result_5b}')
+                         f'Zadanie 5b - {result_5b},\n'
+                         f'Zadanie 5c - {result_5c}')
