@@ -9,18 +9,18 @@ def save_txt(file, text):
 
 
 def digits_sum(number):
-    sum = 0
+    dig_sum = 0
     for num in str(number):
-        sum += int(num)
+        dig_sum += int(num)
 
-    return sum
+    return dig_sum
 
 
 def binary_sum(number):
-    sum = 0
+    bin_sum = 0
     for num in f"{number:08b}":
-        sum += int(num)
-    return sum
+        bin_sum += int(num)
+    return bin_sum
 
 
 def is_super_b_prime_number(number):
@@ -30,26 +30,36 @@ def is_super_b_prime_number(number):
                 break
         else:
             if len(str(number)) > 1:
-                sum = digits_sum(number)
+                num_sum = digits_sum(number)
 
-                for num in range(2, sum):
-                    if sum % num == 0:
+                for num in range(2, num_sum):
+                    if num_sum % num == 0:
                         break
                 else:
-                    sum = binary_sum(number)
-                    for num in range(2, sum):
-                        if sum % num == 0:
+                    num_sum = binary_sum(number)
+                    for num in range(2, num_sum):
+                        if num_sum % num == 0:
                             break
                     else:
                         return True
             else:
-                sum = binary_sum(number)
-                if sum > 1:
-                    for num in range(2, sum):
-                        if sum % num == 0:
+                num_sum = binary_sum(number)
+                if num_sum > 1:
+                    for num in range(2, num_sum):
+                        if num_sum % num == 0:
                             break
                     else:
                         return True
+
+
+def is_prime_number(number):
+    if number > 1:
+        for num in range(2, number):
+            if number % num == 0:
+                return False
+                break
+        else:
+            return True
 
 
 if __name__ == "__main__":
@@ -62,7 +72,7 @@ if __name__ == "__main__":
         if os.path.isfile(filename):
             os.remove(filename)
 
-    # Ex.5a
+    # # Ex.5a
     data_1 = range(2, 1001)
     data_2 = range(100, 10001)
     data_3 = range(1000, 100001)
@@ -85,3 +95,27 @@ if __name__ == "__main__":
         f"Liczba wystąpień liczb „super B pierwszych” w przedziale <1000,100000>: {len(result_a3)}\n"
     )
 
+    # Ex.5b
+    count = 0
+    for number in data_2:
+        num_sum = 0
+        for num in str(number):
+            num_sum += int(num)
+
+        if is_prime_number(num_sum):
+            count += 1
+
+    print(
+        f"W przedziale <100,10000> jest {count} liczb, których suma cyfr jest liczbą pierwszą"
+    )
+
+    super_b_sum = is_prime_number(sum(result_a2))
+
+    if super_b_sum:
+        print(
+            "Suma wszystkich liczb „super B pierwszych” z przedziału <100,10000> jest liczbą pierwszą"
+        )
+    else:
+        print(
+            "Suma wszystkich liczb „super B pierwszych” z przedziału <100,10000> NIE jest liczbą pierwszą"
+        )
