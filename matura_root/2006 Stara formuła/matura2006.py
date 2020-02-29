@@ -41,4 +41,12 @@ if __name__ == "__main__":
         if word[-1] == "A" or word[-1] == "C" or word[-1] == "E":
             even_number += 1
 
-    save_txt(filename, f"b) {even_number}")
+    save_txt(filename, f"b) {even_number}\n\n")
+
+    # Ex.6c
+    palindromes = 0
+    for word in data:
+        if word == word[::-1]:
+            palindromes += 1
+
+    save_txt(filename, f"c) {palindromes}")
