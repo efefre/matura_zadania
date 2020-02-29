@@ -32,5 +32,13 @@ if __name__ == "__main__":
         filename,
         f"a)\n- W pliku dane.txt jest {len(words_more_than_one)} słów występujących więcej niż jeden raz.\n"
         f"- Słowo o największej liczbie wystąpień: {Counter(data).most_common(1)[0][0]}\n"
-        f"- Liczba jego wystąpień: {Counter(data).most_common(1)[0][1]}",
+        f"- Liczba jego wystąpień: {Counter(data).most_common(1)[0][1]}\n\n",
     )
+
+    # Ex.6b
+    even_number = 0
+    for word in data:
+        if word[-1] == "A" or word[-1] == "C" or word[-1] == "E":
+            even_number += 1
+
+    save_txt(filename, f"b) {even_number}")
