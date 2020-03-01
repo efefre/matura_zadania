@@ -1,3 +1,0 @@
-a)
-- 8
-- Najlepsza suma drugiego ciągu jest taka sama jak najlepsza suma pierwszego ciągu.

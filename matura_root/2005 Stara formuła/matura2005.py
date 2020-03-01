@@ -33,9 +33,15 @@ def find_best_sum(data):
 
 
 if __name__ == "__main__":
-    data_1 = [line.rstrip("\n") for line in read_txt("2005 Stara formuła/dane5-1.txt")]
-    data_2 = [line.rstrip("\n") for line in read_txt("2005 Stara formuła/dane5-2.txt")]
-    data_3 = [line.rstrip("\n") for line in read_txt("2005 Stara formuła/dane5-3.txt")]
+    data_1 = [
+        int(line.rstrip("\n")) for line in read_txt("2005 Stara formuła/dane5-1.txt")
+    ]
+    data_2 = [
+        int(line.rstrip("\n")) for line in read_txt("2005 Stara formuła/dane5-2.txt")
+    ]
+    data_3 = [
+        int(line.rstrip("\n")) for line in read_txt("2005 Stara formuła/dane5-3.txt")
+    ]
 
     filename = "2005 Stara formuła/raport5.txt"
 
@@ -56,4 +62,14 @@ if __name__ == "__main__":
     else:
         result_data_a_1_description = "Najlepsza suma drugiego ciągu jest mniejsza od najlepszej sumy pierwszego ciągu."
 
-    save_txt(filename, f"a)\n- {result_data_a}\n" f"- {result_data_a_1_description}\n\n")
+    save_txt(
+        filename, f"a)\n- {result_data_a}\n" f"- {result_data_a_1_description}\n\n"
+    )
+
+    # Ex. 5b
+    result_data_1 = find_best_sum(data_1)
+    save_txt(filename, f"b)\n- {result_data_1}\n")
+    result_data_2 = find_best_sum(data_2)
+    save_txt(filename, f"- {result_data_2}\n")
+    result_data_3 = find_best_sum(data_3)
+    save_txt(filename, f"- {result_data_3}\n")
