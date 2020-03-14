@@ -15,20 +15,19 @@ def save_txt(file, text):
 
 
 def find_best_sum(data):
-    list_of_sum = []
+    present_sum = 0
+    best_sum = None
+    for i in data:
+        if not best_sum:
+            best_sum = i
 
-    i = 0
-    j = i + 2
-    while i < len(data):
-        list_of_sum.append(data[i])
+        present_sum += i
 
-        while j <= len(data):
-            list_of_sum.append(sum(data[i:j]))
-            j += 1
-        i += 1
-        j = i + 2
+        if present_sum < 0:
+            present_sum = 0
 
-    best_sum = max(list_of_sum)
+        best_sum = max(present_sum, best_sum)
+
     return best_sum
 
 
