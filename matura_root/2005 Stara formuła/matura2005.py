@@ -1,6 +1,7 @@
 # Arkusz: https://cke.gov.pl/images/stories/Matura2005/inf_a2.pdf
 
 import os
+from collections import Counter
 
 
 def read_txt(filename):
@@ -71,4 +72,12 @@ if __name__ == "__main__":
     result_data_2 = find_best_sum(data_2)
     save_txt(filename, f"- {result_data_2}\n")
     result_data_3 = find_best_sum(data_3)
-    save_txt(filename, f"- {result_data_3}\n")
+    save_txt(filename, f"- {result_data_3}\n\n")
+
+    # Ex. 5c
+    most_popular_data_1 = Counter(data_1).most_common(1)[0][0]
+    save_txt(filename, f"c)\n- {most_popular_data_1}\n")
+    most_popular_data_2 = Counter(data_2).most_common(1)[0][0]
+    save_txt(filename, f"- {most_popular_data_2}\n")
+    most_popular_data_3 = Counter(data_3).most_common(1)[0][0]
+    save_txt(filename, f"- {most_popular_data_3}\n")
