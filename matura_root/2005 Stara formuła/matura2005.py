@@ -1,6 +1,6 @@
 # Arkusz: https://cke.gov.pl/images/stories/Matura2005/inf_a2.pdf
 
-import os
+import os, pendulum
 from collections import Counter
 
 
@@ -15,6 +15,20 @@ def save_txt(file, text):
         text_file.write(text)
 
 
+def check_time(func):
+    def wrapper(*args, **kwargs):
+        time_start = pendulum.now()
+        func(*args, **kwargs)
+        time_end = pendulum.now()
+        time_result = time_end - time_start
+        print(
+            f"List with: {len(args[0])} elements -> Time: {time_result.microseconds} ms"
+        )
+
+    return wrapper
+
+
+@check_time
 def find_best_sum(data):
     present_sum = 0
     best_sum = None
